@@ -8,15 +8,26 @@ import { DieselModule } from './application/diesel/diesel.module';
 import { HybridModule } from './application/hybrid/hybrid.module';
 import { EletricModule } from './application/eletric/eletric.module';
 import { FileModule } from './application/file/file.module';
+import { DatabaseModule } from './infrastructure/database/database.module';
+/*import { ConfigModule } from '@nestjs/config';
+import { envValidate } from './infrastructure/config/env.validations';
+import configuration from './infrastructure/config/configuration';*/
 
 @Module({
   imports: [
+    /*ConfigModule.forRoot({
+      validate: envValidate,
+      envFilePath: '.env',
+      isGlobal: true,
+      load: [configuration],
+    }),*/
     FuelModule,
     HydrogenModule,
     DieselModule,
     HybridModule,
     EletricModule,
     FileModule,
+    DatabaseModule,
   ],
   controllers: [AppController],
   providers: [AppService],
