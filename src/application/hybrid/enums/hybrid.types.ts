@@ -1,0 +1,4 @@
+export enum HybridTypes {
+  HYBRID_DIESEL = 'HIBRIDO DIESEL',
+  HYBRID_ETHANOL = 'HIBRIDO ETANOL',
+}

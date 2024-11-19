@@ -11,10 +11,11 @@ async function bootstrap() {
   });
 
   const config = new DocumentBuilder()
-    .setTitle('MarcoPolo Combustivel')
-    .setDescription('The cats API description')
-    .setVersion('1.0')
-    .addTag('cats')
+    .setTitle('Aliança WEBAPI-Produtos')
+    .setDescription(
+      'API para cotação de preços de combustíveis. Retorna os valores dos produtos com base em valores inseridos.',
+    )
+    .setVersion('1.0.0')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
