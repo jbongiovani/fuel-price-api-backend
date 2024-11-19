@@ -1,3 +1,4 @@
+// codigo copiado, nao funcional
 import { plainToInstance } from 'class-transformer';
 import { IsEnum, IsNumber, Max, Min, validateSync } from 'class-validator';
 
@@ -25,10 +26,6 @@ export function envValidate(config: Record<string, unknown>) {
   const errors = validateSync(validatedConfig, {
     skipMissingProperties: false,
   });
-
-  // console.debug(validatedConfig);
-
-  // console.debug(errors.map(e => `${e.property}: ${e.value}`));
 
   if (errors.length > 0) {
     throw new Error(errors.map((e) => `${e.property}: ${e.value}`).join('\n'));
