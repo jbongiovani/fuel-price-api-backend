@@ -1,9 +1,9 @@
 import { Global, Module } from '@nestjs/common';
-import { databaseProviders } from './database.providers';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { sqliteConfig } from '../../infrastructure/config/typeorm.config';
 
 @Global()
 @Module({
-  providers: [...databaseProviders],
-  exports: [...databaseProviders],
+  imports: [TypeOrmModule.forRoot(sqliteConfig)],
 })
 export class DatabaseModule {}

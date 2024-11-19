@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { Power } from './power';
-import { Location } from './location';
+import { Power } from './power.entity';
+import { Location } from './location.entity';
 
 @Entity()
 export class PowerData {

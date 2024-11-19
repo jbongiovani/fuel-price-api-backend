@@ -1,17 +1,19 @@
-import { DataSource } from 'typeorm';
+// database.provider.ts
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Location } from 'src/domain/entities/location.entity';
 
-export const databaseProviders = [
-  {
-    provide: 'DATA_SOURCE',
-    useFactory: async () => {
-      const dataSource = new DataSource({
-        type: 'sqlite',
-        database: 'db.sqlite',
-        entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-        synchronize: true,
-      });
 
-      return dataSource.initialize();
-    },
-  },
-];
+//TODO configurar conexoes e servicos para as entidades
+@Injectable()
+export class DatabaseProvider {
+  constructor(
+    @InjectRepository(Location)
+    private readonly userRepository: Repository<Location>,
+  ) {}
+
+  async getUsers(): Promise<Location[]> {
+    return this.userRepository.find();
+  }
+}
