@@ -1,0 +1,19 @@
+# Ignora todos os arquivos de build e cache do npm
+#node_modules
+#npm-debug.log
+
+# Ignora arquivos de log e de depuração
+logs
+*.log
+*.map
+
+# Ignora arquivos de desenvolvimento e de configuração
+.env
+.env.*
+
+# Ignora arquivos de desenvolvimento do TypeScript
+*.tsbuildinfo
+
+# Ignora arquivos de desenvolvimento do Nest CLI
+#.nest-cli.json
+#.nest-cli.build.json
