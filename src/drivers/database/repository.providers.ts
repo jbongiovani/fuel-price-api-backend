@@ -1,19 +1,17 @@
-// database.provider.ts
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Location } from 'src/domain/entities/location.entity';
 
-
 //TODO configurar conexoes e servicos para as entidades
 @Injectable()
-export class DatabaseProvider {
+export class RepositoryProvider {
   constructor(
     @InjectRepository(Location)
-    private readonly userRepository: Repository<Location>,
+    private readonly locationRepository: Repository<Location>,
   ) {}
 
-  async getUsers(): Promise<Location[]> {
-    return this.userRepository.find();
+  async importData(file: File): Promise<Location[]> {
+    return this.locationRepository.find();
   }
 }

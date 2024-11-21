@@ -13,7 +13,7 @@ import { FuelPrice, FuelService, Product, Region } from './fuel.service';
 import { Response } from 'express';
 import * as path from 'path';
 import * as fs from 'fs';
-import { ApiQuery } from '@nestjs/swagger';
+import { ApiQuery, ApiOperation } from '@nestjs/swagger';
 
 @Controller('fuel')
 export class FuelController {
@@ -22,12 +22,14 @@ export class FuelController {
     this.fuelService.loadData();
   }
 
+  @ApiOperation({ summary: 'Obsoleto', deprecated: true })
   @Post('upload-csv')
   @UseInterceptors(
     FileInterceptor('file', {
       dest: './uploads',
     }),
   )
+  @ApiOperation({ summary: 'Obsoleto', deprecated: true })
   async uploadFile(
     @UploadedFile() file: Express.Multer.File,
     @Res() res: Response,
@@ -78,6 +80,7 @@ export class FuelController {
     }
   }
 
+  @ApiOperation({ summary: 'Obsoleto', deprecated: true })
   @Get('prices')
   getFuelPrices(@Res() res: Response) {
     const jsonData = this.fuelService.getJsonData();
@@ -90,6 +93,7 @@ export class FuelController {
     return res.status(HttpStatus.OK).json(this.fuelService.getJsonData());
   }
 
+  @ApiOperation({ summary: 'Obsoleto', deprecated: true })
   @Get('search')
   @ApiQuery({
     name: 'region',
@@ -101,6 +105,7 @@ export class FuelController {
     enum: Product,
     enumName: 'Product',
   })
+  @ApiOperation({ summary: 'Obsoleto', deprecated: true })
   searchFuelPrices(
     @Query('region') region: Region,
     @Query('product') product: Product,
