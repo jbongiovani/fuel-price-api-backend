@@ -1,6 +1,7 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { LoggerMiddleware } from './drivers/middleware/logger.middleware';
 import { CoreModule } from './core/core.module';
+// import { DriversModule } from './drivers/drivers.module';
 
 @Module({
   imports: [CoreModule],

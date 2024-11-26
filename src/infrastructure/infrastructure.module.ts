@@ -1,12 +1,13 @@
 import { Module } from '@nestjs/common';
-import { InfrastructureService } from './infrastructure.service';
+// import { InfrastructureService } from './infrastructure.service';
 import { DomainModule } from 'src/domain/domain.module';
-import { DriversModule } from 'src/drivers/drivers.module';
+import { RepositoryModule } from './repository/repository.module';
+import { RepositoryService } from './repository/repository.service';
 
 @Module({
-  imports: [DomainModule, DriversModule],
+  imports: [DomainModule, RepositoryModule],
   controllers: [],
-  providers: [InfrastructureService],
-  exports: [InfrastructureService],
+  providers: [RepositoryService],
+  exports: [RepositoryService],
 })
-export class InfrastrucutureModule {}
+export class InfrastructureModule {}

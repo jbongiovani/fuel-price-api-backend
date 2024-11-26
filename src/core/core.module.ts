@@ -8,13 +8,14 @@ import { FuelModule } from './fuel/fuel.module';
 import { HydrogenModule } from './hydrogen/hydrogen.module';
 import { DomainModule } from 'src/domain/domain.module';
 import { CoreController } from './core.controller';
-import { DriversModule } from 'src/drivers/drivers.module';
+// import { DriversModule } from 'src/drivers/drivers.module';
 import { CoreProvider } from './core.provider';
+import { FileService } from './file/file.service';
 
 @Module({
   imports: [
     DomainModule,
-    DriversModule,
+    //DriversModule,
     FuelModule,
     FileModule,
     DieselModule,
@@ -23,7 +24,7 @@ import { CoreProvider } from './core.provider';
     HydrogenModule,
   ],
   controllers: [CoreController],
-  providers: [CoreService, CoreProvider],
+  providers: [CoreService, CoreProvider, FileService],
   exports: [CoreService],
 })
 export class CoreModule {}

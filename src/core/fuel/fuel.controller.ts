@@ -26,7 +26,8 @@ export class FuelController {
   @Post('upload-csv')
   @UseInterceptors(
     FileInterceptor('file', {
-      dest: './uploads',
+      //dest: './uploads',
+      dest: './../../drivers/files',
     }),
   )
   @ApiOperation({ summary: 'Obsoleto', deprecated: true })

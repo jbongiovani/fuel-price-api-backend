@@ -1,17 +1,9 @@
 import { Module } from '@nestjs/common';
 import { DomainModule } from 'src/domain/domain.module';
-// import { DatabaseService } from './database/database.service';
-import { RepositoryModule } from './database/repository.module';
-import { MulterModule } from '@nestjs/platform-express';
+import { InfrastructureModule } from 'src/infrastructure/infrastructure.module';
 
 @Module({
-  imports: [
-    DomainModule,
-    RepositoryModule,
-    MulterModule.register({
-      dest: './files',
-    }),
-  ],
+  imports: [DomainModule, InfrastructureModule],
   controllers: [],
   providers: [],
   exports: [],
